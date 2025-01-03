@@ -44,6 +44,7 @@ where
     PeripheralType: Peripheral + 'static,
 {
     pub fn emit(&self, event: CentralEvent) {
+        #[cfg(not(target_os = "macos"))]
         if let CentralEvent::DeviceDisconnected(ref id) = event {
             self.peripherals.remove(id);
         }

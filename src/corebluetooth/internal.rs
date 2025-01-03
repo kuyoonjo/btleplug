@@ -719,7 +719,7 @@ impl CoreBluetoothInternal {
                 .get_mut(&peripheral_uuid)
                 .expect("If we're here we should have an ID")
                 .confirm_disconnect();
-            self.peripherals.remove(&peripheral_uuid);
+            // self.peripherals.remove(&peripheral_uuid);
             self.dispatch_event(CoreBluetoothEvent::DeviceDisconnected {
                 uuid: peripheral_uuid,
             })
